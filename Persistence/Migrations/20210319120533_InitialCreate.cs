@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Persistance.Migrations
+namespace Persistence.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -15,6 +15,7 @@ namespace Persistance.Migrations
                     Title = table.Column<string>(type: "TEXT", nullable: true),
                     Date = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Category = table.Column<string>(type: "TEXT", nullable: true),
                     City = table.Column<string>(type: "TEXT", nullable: true),
                     Venue = table.Column<string>(type: "TEXT", nullable: true)
                 },
