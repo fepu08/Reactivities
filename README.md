@@ -1,0 +1,5 @@
+- <span>ASP.<span>NET Core
+- React
+- Axios
+- MobX
+- Semantic UI
