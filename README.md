@@ -8,6 +8,7 @@
 - [Section Goals](#section-goals)
   - [Clean Architecture recommendations](#clean-architecture-recommendations)
   - [Command vs Query](#command-vs-query)
+- [NuGet Packages](#nuget-packages)
 
 ## Technologies
 
@@ -26,15 +27,32 @@
 - Creating handlers for the CRUD operators
 
 #### Clean Architecture recommendations
+
 - Independent from fameworks
 - Testable
 - Independent from the interface
 - Indepndent from the database
 
 #### Command vs Query
-Command | Query
-------- | -----
-Does something | Answers a question
-Modifies State | Does not modify State
-Should not return a value | Should return a value
-Optimised for Write | Optimised for Read
+
+| Command                   | Query                 |
+| ------------------------- | --------------------- |
+| Does something            | Answers a question    |
+| Modifies State            | Does not modify State |
+| Should not return a value | Should return a value |
+| Optimised for Write       | Optimised for Read    |
+
+## NuGet Packages
+
+### Persistance
+
+- Microsoft.EntityFrameworkCore.Sqlit
+
+### Application
+
+- MediatR.Extensions.Microsoft.DependencyInjection
+
+### API
+
+- Microsoft.EntityFrameworkCore.Design
+- Swashbuckle.AspNetCore
