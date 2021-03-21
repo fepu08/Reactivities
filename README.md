@@ -37,4 +37,4 @@ Command | Query
 Does something | Answers a question
 Modifies State | Does not modify State
 Should not return a value | Should return a value
-
+Optimised for Write | Optimised for Read
