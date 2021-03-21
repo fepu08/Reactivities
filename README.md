@@ -6,8 +6,9 @@
 
 - [Technologies](#technologies)
 - [Section Goals](#section-goals)
-  - [Clean Architecture recommendations](#clean-architecture-recommendations)
-  - [Command vs Query](#command-vs-query)
+  - [Section 4 - Creating a CRUD application using the CQRS + Mediator Pattern](#section-4)
+    - [Clean Architecture recommendations](#clean-architecture-recommendations)
+    - [Command vs Query](#command-vs-query)
 
 ## Technologies
 
