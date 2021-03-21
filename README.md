@@ -2,14 +2,10 @@
 
 ## This project based on a Udemy course called **Complete guide to building an app with .Net Core and React** by _Neil Cummings_
 
----
-
 ## Navigation
 
 - [Technologies](#technologies)
 - [Section Goals](#section-goals)
-
----
 
 ## Technologies
 
@@ -18,8 +14,6 @@
 - Axios
 - MobX
 - Semantic UI
-
----
 
 ## Section Goals
 
