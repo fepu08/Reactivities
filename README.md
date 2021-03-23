@@ -8,7 +8,6 @@
 - [Section Goals](#section-goals)
   - [Clean Architecture recommendations](#clean-architecture-recommendations)
   - [Command vs Query](#command-vs-query)
-- [NuGet Packages](#nuget-packages)
 
 ## Technologies
 
@@ -41,18 +40,3 @@
 | Modifies State            | Does not modify State |
 | Should not return a value | Should return a value |
 | Optimised for Write       | Optimised for Read    |
-
-## NuGet Packages
-
-### Persistance
-
-- Microsoft.EntityFrameworkCore.Sqlit
-
-### Application
-
-- MediatR.Extensions.Microsoft.DependencyInjection
-
-### API
-
-- Microsoft.EntityFrameworkCore.Design
-- Swashbuckle.AspNetCore
