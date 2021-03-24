@@ -18,7 +18,12 @@ const App = () => {
     //axios.get<Activity[]>("http://localhost:5000/api/activities").then((response) => {setActivities(response.data);};
 
     agent.Activities.list().then((response) => {
-      setActivities(response);
+      let newActivities: Activity[] = [];
+      response.forEach((activity) => {
+        activity.date = activity.date.split("T")[0];
+        newActivities.push(activity);
+      });
+      setActivities(newActivities);
     });
 
     // eslint-disable-next-line
