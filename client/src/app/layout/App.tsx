@@ -39,6 +39,16 @@ const App = () => {
     setEditMode(false);
   }
 
+  // Where is the SRP??? Hah??
+  function handleCreateOrEditActivity(activity: Activity) {
+    activity.id
+      ? setActivities([
+          ...activities.filter((x) => x.id !== activity.id),
+          activity,
+        ])
+      : setActivities([...activities, activity]);
+  }
+
   return (
     <Fragment>
       <NavBar openForm={handleFormOpen} />
@@ -51,6 +61,7 @@ const App = () => {
           editMode={editMode}
           openForm={handleFormOpen}
           closeForm={handleFormClose}
+          createOrEdit={handleCreateOrEditActivity}
         />
       </Container>
     </Fragment>
