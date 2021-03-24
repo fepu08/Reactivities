@@ -6,6 +6,7 @@ import "./styles.css";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
 import { v4 as uuid } from "uuid";
 import agent from "../api/agent";
+import LoadingComponent from "./LoadingComponent";
 
 const App = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
@@ -13,6 +14,7 @@ const App = () => {
     Activity | undefined
   >(undefined);
   const [editMode, setEditMode] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     //axios.get<Activity[]>("http://localhost:5000/api/activities").then((response) => {setActivities(response.data);};
@@ -24,6 +26,7 @@ const App = () => {
         newActivities.push(activity);
       });
       setActivities(newActivities);
+      setLoading(false);
     });
 
     // eslint-disable-next-line
@@ -57,6 +60,8 @@ const App = () => {
     setEditMode(false);
     setSelectedActivity(activity);
   }
+
+  if (loading) return <LoadingComponent content="Loading app" />;
 
   return (
     <Fragment>
