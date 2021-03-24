@@ -29,7 +29,7 @@ function ActivityList({ activities, selectActivity }: Props) {
                   content="View"
                   color="blue"
                 />
-                <Label basis content={activity.category} />
+                <Label basic content={activity.category} />
               </Item.Extra>
             </Item.Content>
           </Item>
