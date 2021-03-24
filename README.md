@@ -5,9 +5,8 @@
 ## Navigation
 
 - [Technologies](#technologies)
-- [Section Goals](#section-goals)
-  - [Clean Architecture recommendations](#clean-architecture-recommendations)
-  - [Command vs Query](#command-vs-query)
+- [Clean Architecture recommendations](#clean-architecture-recommendations)
+- [Command vs Query](#command-vs-query)
 
 ## Technologies
 
@@ -16,14 +15,6 @@
 - Axios
 - MobX
 - Semantic UI
-
-## Section Goals
-
-### Section 4 - Creating a CRUD application using the CQRS + Mediator Pattern
-
-- Clean Architecture pattern (clean and scalable app)
-- CQRS + Mediator pattern
-- Creating handlers for the CRUD operators
 
 #### Clean Architecture recommendations
 
