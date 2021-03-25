@@ -6,19 +6,14 @@ import ActivityDetails from "../details/ActivityDetails";
 import ActivityForm from "../form/ActivityForm";
 import ActivityList from "./ActivityList";
 
-interface Props {
-  submitting: boolean;
-  deleteActivity: (id: string) => void;
-}
-
-const ActivityDashboard = ({ submitting, deleteActivity }: Props) => {
+const ActivityDashboard = () => {
   const { activityStore } = useStore();
   const { selectedActivity, editMode } = activityStore;
 
   return (
     <Grid>
       <Grid.Column width="10">
-        <ActivityList deleteActivity={deleteActivity} submitting={submitting} />
+        <ActivityList />
       </Grid.Column>
       <Grid.Column width="6">
         {selectedActivity && !editMode && <ActivityDetails />}
