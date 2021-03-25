@@ -1,11 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, Button, Container } from "semantic-ui-react";
-import { useStore } from "../stores/store";
 
 export default function NavBar() {
-  const { activityStore } = useStore();
-
   return (
     <Menu inverted fixed="top">
       <Container>
@@ -22,7 +19,6 @@ export default function NavBar() {
           <Button
             as={NavLink}
             to="/createActivity"
-            onClick={() => activityStore.openForm()}
             positive
             content="Create Activity"
           />
