@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Button, Container } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import { Activity } from "../models/activity";
 import NavBar from "./NavBar";
 import "./styles.css";
@@ -18,24 +18,12 @@ const App = () => {
     Activity | undefined
   >(undefined);
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    //axios.get<Activity[]>("http://localhost:5000/api/activities").then((response) => {setActivities(response.data);};
-
-    agent.Activities.list().then((response) => {
-      let newActivities: Activity[] = [];
-      response.forEach((activity) => {
-        activity.date = activity.date.split("T")[0];
-        newActivities.push(activity);
-      });
-      setActivities(newActivities);
-      setLoading(false);
-    });
-
+    activityStore.loadActivities();
     // eslint-disable-next-line
-  }, []);
+  }, [activityStore]);
 
   function handleSelectActivity(id: string) {
     setSelectedActivity(activities.find((x) => x.id === id));
@@ -86,20 +74,15 @@ const App = () => {
     });
   }
 
-  if (loading) return <LoadingComponent content="Loading app" />;
+  if (activityStore.loadingInitial)
+    return <LoadingComponent content="Loading app" />;
 
   return (
     <Fragment>
       <NavBar openForm={handleFormOpen} />
       <Container style={{ marginTop: "7em" }}>
-        <h1>{activityStore.title}</h1>
-        <Button
-          content="Add exclamation!"
-          positive
-          onClick={activityStore.setTitle}
-        />
         <ActivityDashboard
-          activities={activities}
+          activities={activityStore.activities}
           selectedActivity={selectedActivity}
           selectActivity={handleSelectActivity}
           cancelSelectActivity={handleCancelSelectActivity}

@@ -1,28 +1,29 @@
 import { action, makeAutoObservable, observable } from "mobx";
+import agent from "../api/agent";
+import { Activity } from "../models/activity";
 
 export default class ActivityStore {
-  title = "Hello from MobX";
+  activities: Activity[] = [];
+  selectedActivity: Activity | null = null;
+  editMode = false;
+  loading = false;
+  loadingInitial = false;
 
   constructor() {
     makeAutoObservable(this);
-
-    /*
-    makeObservable(this, {
-      title: observable,
-
-      // we need to use "bound" because in method dec we use "this", and w this we bound it to the class
-      //setTitle: action.bound,
-      setTitle: action
-    });*/
   }
 
-  //setTitle() {
-  //  this.title = this.title + "!";
-  //}
-
-  // TO AVOID BINDING USE ARROW FUNCTIONS
-
-  setTitle = () => {
-    this.title = this.title + "!";
+  loadActivities = async () => {
+    this.loadingInitial = true;
+    try {
+      const activities = await agent.Activities.list();
+      activities.forEach((activity) => {
+        activity.date = activity.date.split("T")[0];
+        this.activities.push(activity);
+      });
+      this.loadingInitial = false;
+    } catch (err) {
+      console.log(err);
+    }
   };
 }
