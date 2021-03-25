@@ -1,21 +1,17 @@
+import { observer } from "mobx-react-lite";
 import React, { SyntheticEvent, useState } from "react";
 import { Button, Item, Label, Segment } from "semantic-ui-react";
-import { Activity } from "../../../app/models/activity";
+import { useStore } from "../../../app/stores/store";
 
 interface Props {
-  activities: Activity[];
-  selectActivity: (id: string) => void;
   deleteActivity: (id: string) => void;
   submitting: boolean;
 }
 
-function ActivityList({
-  activities,
-  selectActivity,
-  deleteActivity,
-  submitting,
-}: Props) {
+function ActivityList({ deleteActivity, submitting }: Props) {
   const [target, setTarget] = useState("");
+  const { activityStore } = useStore();
+  const { activities, selectActivity } = activityStore;
 
   function handleActivityDelete(
     e: SyntheticEvent<HTMLButtonElement>,
@@ -64,4 +60,4 @@ function ActivityList({
   );
 }
 
-export default ActivityList;
+export default observer(ActivityList);
