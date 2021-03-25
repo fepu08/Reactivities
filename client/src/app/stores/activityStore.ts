@@ -1,16 +1,19 @@
-import { action, makeObservable, observable } from "mobx";
+import { action, makeAutoObservable, observable } from "mobx";
 
 export default class ActivityStore {
   title = "Hello from MobX";
 
   constructor() {
+    makeAutoObservable(this);
+
+    /*
     makeObservable(this, {
       title: observable,
 
       // we need to use "bound" because in method dec we use "this", and w this we bound it to the class
       //setTitle: action.bound,
-      setTitle: action,
-    });
+      setTitle: action
+    });*/
   }
 
   //setTitle() {
