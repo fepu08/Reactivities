@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { Container } from "semantic-ui-react";
+import { Button, Container } from "semantic-ui-react";
 import { Activity } from "../models/activity";
 import NavBar from "./NavBar";
 import "./styles.css";
@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 import agent from "../api/agent";
 import LoadingComponent from "./LoadingComponent";
 import { useStore } from "../stores/store";
+import { observer } from "mobx-react-lite";
 
 const App = () => {
   const { activityStore } = useStore();
@@ -92,6 +93,11 @@ const App = () => {
       <NavBar openForm={handleFormOpen} />
       <Container style={{ marginTop: "7em" }}>
         <h1>{activityStore.title}</h1>
+        <Button
+          content="Add exclamation!"
+          positive
+          onClick={activityStore.setTitle}
+        />
         <ActivityDashboard
           activities={activities}
           selectedActivity={selectedActivity}
@@ -109,4 +115,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default observer(App);
