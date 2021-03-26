@@ -2,12 +2,12 @@ body {
   background-color: #eaeaea !important;
 }
 
-.ui.items {
+/*.ui.items {
   background-color: #fff;
   padding: 1rem;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
   border: 3px solid #d3d3d3;
-}
+}*/
 
 .ui.inverted.top.fixed.menu {
   background-image: linear-gradient(
