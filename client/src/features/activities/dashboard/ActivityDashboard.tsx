@@ -7,12 +7,12 @@ import ActivityList from "./ActivityList";
 
 const ActivityDashboard = () => {
   const { activityStore } = useStore();
-  const { loadActivities, loadingInitial } = activityStore;
+  const { loadActivities, loadingInitial, activityRegistry } = activityStore;
 
   useEffect(() => {
-    loadActivities();
+    if (activityRegistry.size <= 1) loadActivities();
     // eslint-disable-next-line
-  }, [activityStore]);
+  }, [activityRegistry.size, loadActivities]);
 
   if (loadingInitial) return <LoadingComponent content="Loading app" />;
 

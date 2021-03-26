@@ -10,7 +10,6 @@ const ActivityForm = () => {
   const history = useHistory();
   const { activityStore } = useStore();
   const {
-    selectedActivity,
     createActivity,
     updateActivity,
     loading,
