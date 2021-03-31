@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
-import { Button, Segment } from "semantic-ui-react";
+import { Button, Header, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { Link, useHistory, useParams } from "react-router-dom";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
@@ -12,6 +12,7 @@ import MySelectInput from "../../../app/common/form/MySelectInput";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
 import { Activity } from "../../../app/models/activity";
+import { v4 as uuid } from "uuid";
 
 const ActivityForm = () => {
   const history = useHistory();
@@ -41,8 +42,7 @@ const ActivityForm = () => {
     }
   }, [id, loadActivity]);
 
-  /*
-  function handleSubmit() {
+  function handleFormSubmit(activity: Activity) {
     if (activity.id.length === 0) {
       let newActivity = {
         ...activity,
@@ -58,14 +58,6 @@ const ActivityForm = () => {
     }
   }
 
-  function handleInputChange(
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    const { name, value } = event.target;
-    setActivity({ ...activity, [name]: value });
-  }
-  */
-
   if (loadingInitial) {
     return <LoadingComponent content="Loading activity..." />;
   }
@@ -74,20 +66,21 @@ const ActivityForm = () => {
     title: Yup.string().required("Activity title is required"),
     description: Yup.string().required("The activity description is required"),
     category: Yup.string().required(),
-    date: Yup.string().required(),
+    date: Yup.string().required("Date is required").nullable(),
     venue: Yup.string().required(),
     city: Yup.string().required(),
   });
 
   return (
     <Segment clearing>
+      <Header content="Activity Details" sub color="teal" />
       <Formik
         validationSchema={validationSchema}
         enableReinitialize
         initialValues={activity}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => handleFormSubmit(values)}
       >
-        {({ handleSubmit }) => (
+        {({ handleSubmit, isValid, isSubmitting, dirty }) => (
           <Form className="ui form" onSubmit={handleSubmit} autoComplete="off">
             <MyTextInput name="title" placeholder="Title" />
 
@@ -104,9 +97,11 @@ const ActivityForm = () => {
               timeCaption="time"
               dateFormat="MMM d, yyyy h:mm aa"
             />
+            <Header content="Location Details" sub color="teal" />
             <MyTextInput placeholder="City" name="city" />
             <MyTextInput placeholder="Venue" name="venue" />
             <Button
+              disabled={isSubmitting || !dirty || !isValid}
               loading={loading}
               floated="right"
               positive
