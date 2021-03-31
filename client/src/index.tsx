@@ -6,13 +6,16 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "semantic-ui-css/semantic.min.css";
 import reportWebVitals from "./reportWebVitals";
 import { store, StoreContext } from "./app/stores/store";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+export const history = createBrowserHistory();
 
 ReactDOM.render(
   <StoreContext.Provider value={store}>
-    <BrowserRouter>
+    <Router history={history}>
       <App />
-    </BrowserRouter>
+    </Router>
   </StoreContext.Provider>,
   document.getElementById("root")
 );
