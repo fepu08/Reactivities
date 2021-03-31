@@ -32,9 +32,7 @@ const TestErrors = () => {
   }
 
   function handleBadGuid() {
-    axios
-      .get(baseUrl + "activities/notaguid")
-      .catch((err) => console.log(err.response));
+    axios.get(baseUrl + "activities/notaguid").catch((err) => console.log(err));
   }
 
   function handleValidationError() {
