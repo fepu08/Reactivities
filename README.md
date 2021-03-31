@@ -15,6 +15,8 @@
 - Axios
 - MobX
 - Semantic UI
+- Formik
+  - Yup
 
 #### Clean Architecture recommendations
 

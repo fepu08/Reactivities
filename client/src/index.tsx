@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app/layout/App";
 import "react-calendar/dist/Calendar.css";
+import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.min.css";
 import "semantic-ui-css/semantic.min.css";
 import reportWebVitals from "./reportWebVitals";
 import { store, StoreContext } from "./app/stores/store";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
-
 export const history = createBrowserHistory();
 
 ReactDOM.render(
