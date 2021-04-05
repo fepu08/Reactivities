@@ -15,7 +15,8 @@ const ActivityDashboard = () => {
     // eslint-disable-next-line
   }, [activityRegistry.size, loadActivities]);
 
-  if (loadingInitial) return <LoadingComponent content="Loading app" />;
+  if (loadingInitial)
+    return <LoadingComponent content="Loading activities..." />;
 
   return (
     <Grid>
