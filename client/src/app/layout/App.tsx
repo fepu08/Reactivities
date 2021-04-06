@@ -15,6 +15,7 @@ import ServerError from "../../features/errors/ServerError";
 import LoginForm from "../../features/users/LoginForm";
 import { useStore } from "../stores/store";
 import LoadingComponent from "./LoadingComponent";
+import ModalContainer from "../common/modals/ModalContainer";
 
 const App = () => {
   const location = useLocation();
@@ -39,6 +40,7 @@ const App = () => {
         render={() => (
           <Fragment>
             <ToastContainer position="bottom-right" hideProgressBar />
+            <ModalContainer />
             <NavBar />
             <Container style={{ marginTop: "7em" }}>
               <Switch>
