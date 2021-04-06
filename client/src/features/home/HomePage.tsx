@@ -28,15 +28,7 @@ const HomePage = () => {
           </>
         ) : (
           <>
-            {/*Link Buttons*/}
-            <Button as={Link} to="/login" size="huge" inverted>
-              Login
-            </Button>
-            <Button as={Link} to="/register" size="huge" inverted>
-              Register
-            </Button>
-
-            {/* Modal Buttons
+            {/* Modal Buttons*/}
             <Button
               onClick={() => modalStore.openModal(<LoginForm />)}
               size="huge"
@@ -51,7 +43,6 @@ const HomePage = () => {
             >
               Register!
             </Button>
-            */}
           </>
         )}
       </Container>

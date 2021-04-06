@@ -35,13 +35,13 @@ const App = () => {
 
   return (
     <Fragment>
+      <ToastContainer position="bottom-right" hideProgressBar />
+      <ModalContainer />
       <Route exact path="/" component={HomePage} />
       <Route
         path={"/(.+)"}
         render={() => (
           <Fragment>
-            <ToastContainer position="bottom-right" hideProgressBar />
-            <ModalContainer />
             <NavBar />
             <Container style={{ marginTop: "7em" }}>
               <Switch>
