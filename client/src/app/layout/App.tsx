@@ -16,6 +16,7 @@ import LoginForm from "../../features/users/LoginForm";
 import { useStore } from "../stores/store";
 import LoadingComponent from "./LoadingComponent";
 import ModalContainer from "../common/modals/ModalContainer";
+import RegisterForm from "../../features/users/RegisterForm";
 
 const App = () => {
   const location = useLocation();
@@ -54,6 +55,7 @@ const App = () => {
                 <Route path="/errors" component={TestErrors} />
                 <Route path="/server-error" component={ServerError} />
                 <Route path="/login" component={LoginForm} />
+                <Route path="/register" component={RegisterForm} />
                 <Route component={NotFound} />
               </Switch>
             </Container>
