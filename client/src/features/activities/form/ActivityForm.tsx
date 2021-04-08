@@ -11,7 +11,7 @@ import MyTextArea from "../../../app/common/form/MyTextArea";
 import MySelectInput from "../../../app/common/form/MySelectInput";
 import { categoryOptions } from "../../../app/common/options/categoryOptions";
 import MyDateInput from "../../../app/common/form/MyDateInput";
-import { Activity, ActivityFormValues } from "../../../app/models/activity";
+import { ActivityFormValues } from "../../../app/models/activity";
 import { v4 as uuid } from "uuid";
 
 const ActivityForm = () => {
@@ -20,7 +20,6 @@ const ActivityForm = () => {
   const {
     createActivity,
     updateActivity,
-    loading,
     loadingInitial,
     loadActivity,
   } = activityStore;

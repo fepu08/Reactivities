@@ -4,7 +4,6 @@ import { Activity, ActivityFormValues } from "../models/activity";
 import { format } from "date-fns";
 import { store } from "./store";
 import { Profile } from "../models/profile";
-import { updateIndexedAccessTypeNode } from "typescript";
 export default class ActivityStore {
   activities: Activity[] = [];
   activityRegistry = new Map<string, Activity>();

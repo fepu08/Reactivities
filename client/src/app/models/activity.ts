@@ -1,4 +1,3 @@
-import { isThisISOWeek } from "date-fns";
 import { Profile } from "./profile";
 
 export interface Activity {
