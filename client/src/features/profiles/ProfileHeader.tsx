@@ -1,0 +1,52 @@
+import React from "react";
+import {
+  Button,
+  Divider,
+  Grid,
+  Header,
+  Item,
+  Reveal,
+  RevealContent,
+  Segment,
+  Statistic,
+} from "semantic-ui-react";
+
+const ProfileHeader = () => {
+  return (
+    <Segment>
+      <Grid>
+        <Grid.Column width={12}>
+          <Item.Group>
+            <Item>
+              <Item.Image avatar size="small" src={"/assets/user.png"} />
+              <Item.Content verticalAlign="middle">
+                <Header as="h1" content="Displayname" />
+              </Item.Content>
+            </Item>
+          </Item.Group>
+        </Grid.Column>
+        <Grid.Column width={4}>
+          <Statistic.Group widths={2}>
+            <Statistic label="Followers" value="5" />
+            <Statistic label="Following" value="42" />
+          </Statistic.Group>
+          <Divider />
+          <Reveal animated="move">
+            <RevealContent visible style={{ width: "100%" }}>
+              <Button fluid color="teal" content="Following" />
+            </RevealContent>
+            <RevealContent hidden style={{ width: "100%" }}>
+              <Button
+                fluid
+                color={true ? "red" : "green"}
+                content={true ? "Unfollow" : "Follow"}
+              />
+            </RevealContent>
+          </Reveal>
+        </Grid.Column>
+      </Grid>
+    </Segment>
+  );
+};
+
+export default ProfileHeader;
