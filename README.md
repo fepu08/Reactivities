@@ -10,12 +10,17 @@
 
 ## Technologies
 
-- <span>ASP.<span>NET Core
-- React
-- Axios
-- MobX
-- Semantic UI
-- Formik
+- Backend
+  - <span>ASP.<span>NET Core
+  - Entity Framework
+  - Identity
+  - SignalR 
+- Frontend 
+  - React
+  - Axios
+  - MobX
+  - Semantic UI
+  - Formik
   - Yup
 
 #### Clean Architecture recommendations
