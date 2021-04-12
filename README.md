@@ -13,9 +13,10 @@
 - Backend
   - <span>ASP.<span>NET Core
   - Entity Framework
+  - SQLite
   - Identity
-  - SignalR 
-- Frontend 
+  - SignalR
+- Frontend
   - React
   - Axios
   - MobX
