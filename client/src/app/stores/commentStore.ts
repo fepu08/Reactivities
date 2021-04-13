@@ -27,16 +27,24 @@ export default class CommentStore {
 
       this.hubConnection
         .start()
-        .catch((err) =>
-          console.log("Error establishing the connection: " + err)
+        .catch((error) =>
+          console.log("Error establishing the connection: ", error)
         );
 
       this.hubConnection.on("LoadComments", (comments: ChatComment[]) => {
-        runInAction(() => (this.comments = comments));
+        runInAction(() => {
+          comments.forEach((comment) => {
+            comment.createdAt = new Date(comment.createdAt + "Z");
+          });
+          this.comments = comments;
+        });
       });
 
-      this.hubConnection.on("RecieveComment", (comment: ChatComment) => {
-        runInAction(() => this.comments.push(comment));
+      this.hubConnection.on("ReceiveComment", (comment: ChatComment) => {
+        runInAction(() => {
+          comment.createdAt = new Date(comment.createdAt);
+          this.comments.unshift(comment);
+        });
       });
     }
   };
@@ -44,11 +52,9 @@ export default class CommentStore {
   stopHubConnection = () => {
     this.hubConnection
       ?.stop()
-      .catch((error) => console.log("Error stopping connection: " + error));
+      .catch((error) => console.log("Error stopping connection: ", error));
   };
 
-  // in activity details we only need to call this action as a cleanup method,
-  // when we move away from that activity
   clearComments = () => {
     this.comments = [];
     this.stopHubConnection();
@@ -58,8 +64,8 @@ export default class CommentStore {
     values.activityId = store.activityStore.selectedActivity?.id;
     try {
       await this.hubConnection?.invoke("SendComment", values);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 }
