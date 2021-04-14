@@ -119,6 +119,7 @@ export default class ProfileStore {
             profile.following = !profile.following;
           }
         });
+        this.loading = false;
       });
     } catch (err) {
       console.log(err);
