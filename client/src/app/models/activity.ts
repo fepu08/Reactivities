@@ -1,4 +1,3 @@
-import ActivityListItemAttendee from "../../features/activities/dashboard/ActivityListItemAttendee";
 import { Profile } from "./profile";
 
 export interface Activity {
