@@ -15,7 +15,11 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Activity>>> GetActivities([FromQuery]PagingParams param)
         {
+<<<<<<< HEAD
             return HandlePagedResult(await Mediator.Send(new List.Query{Params = param}));
+=======
+            return HandleResult(await Mediator.Send(new List.Query{Params = param}));
+>>>>>>> 619e4e524acc5235452d775cbafbf6450b1f861c
         }
 
         [HttpGet("{id}")]
