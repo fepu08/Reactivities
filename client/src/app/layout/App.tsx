@@ -18,6 +18,7 @@ import LoadingComponent from "./LoadingComponent";
 import ModalContainer from "../common/modals/ModalContainer";
 import RegisterForm from "../../features/users/RegisterForm";
 import ProfilePage from "../../features/profiles/ProfilePage";
+import PrivateRoute from "./PrivateRoute";
 
 const App = () => {
   const location = useLocation();
@@ -46,18 +47,26 @@ const App = () => {
             <NavBar />
             <Container style={{ marginTop: "7em" }}>
               <Switch>
-                <Route exact path="/activities" component={ActivityDashboard} />
-                <Route path="/activities/:id" component={ActivityDetails} />
-                <Route
+                <PrivateRoute
+                  exact
+                  path="/activities"
+                  component={ActivityDashboard}
+                />
+                <PrivateRoute
+                  path="/activities/:id"
+                  component={ActivityDetails}
+                />
+                <PrivateRoute
                   key={location.key}
                   path={["/createActivity", "/manage/:id"]}
                   component={ActivityForm}
                 />
-                <Route path="/errors" component={TestErrors} />
-                <Route path="/profiles/:username" component={ProfilePage} />
+                <PrivateRoute
+                  path="/profiles/:username"
+                  component={ProfilePage}
+                />
+                <PrivateRoute path="/errors" component={TestErrors} />
                 <Route path="/server-error" component={ServerError} />
-                <Route path="/login" component={LoginForm} />
-                <Route path="/register" component={RegisterForm} />
                 <Route component={NotFound} />
               </Switch>
             </Container>
