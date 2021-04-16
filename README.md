@@ -46,4 +46,10 @@
 ### Cloudinary
 
 Inside ./backend/API/appsettings.json
-`"Cloudinary": { "CloudName": "YOUR_CLOUD_NAME", "ApiKey": "YOUR_API_KEY", "ApiSecret": "YOUR_API_SECRET" }`
+```json
+"Cloudinary": { 
+  "CloudName": "YOUR_CLOUD_NAME", 
+  "ApiKey": "YOUR_API_KEY", 
+  "ApiSecret": "YOUR_API_SECRET" 
+}
+```
