@@ -7,6 +7,7 @@
 - [Technologies](#technologies)
 - [Clean Architecture recommendations](#clean-architecture-recommendations)
 - [Command vs Query](#command-vs-query)
+- [Config](#config)
 
 ## Technologies
 
@@ -39,3 +40,10 @@
 | Modifies State            | Does not modify State |
 | Should not return a value | Should return a value |
 | Optimised for Write       | Optimised for Read    |
+
+## Config
+
+### Cloudinary
+
+Inside ./backend/API/appsettings.json
+`"Cloudinary": { "CloudName": "YOUR_CLOUD_NAME", "ApiKey": "YOUR_API_KEY", "ApiSecret": "YOUR_API_SECRET" }`
