@@ -9,7 +9,7 @@ interface Props extends RouteProps {
     | React.ComponentType<any>;
 }
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }: Props) => {
   const {
     userStore: { isLoggedIn },
   } = useStore();
