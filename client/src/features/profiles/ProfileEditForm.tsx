@@ -5,6 +5,7 @@ import MyTextArea from "../../app/common/form/MyTextArea";
 import MyTextInput from "../../app/common/form/MyTextInput";
 import { useStore } from "../../app/stores/store";
 import * as Yup from "yup";
+import { useEffect } from "react";
 
 interface Props {
   setEditMode: (editMode: boolean) => void;
@@ -13,7 +14,12 @@ interface Props {
 const ProfileEditForm = ({ setEditMode }: Props) => {
   const {
     profileStore: { profile, updateProfile },
+    activityStore: { realoadActivityRegistry },
   } = useStore();
+
+  useEffect(() => {
+    realoadActivityRegistry();
+  }, [profile, updateProfile, realoadActivityRegistry]);
 
   return (
     <Formik
@@ -34,7 +40,6 @@ const ProfileEditForm = ({ setEditMode }: Props) => {
         <Form className="ui form">
           <MyTextInput placeholder="Display Name" name="displayName" />
           <MyTextArea rows={3} placeholder="Add your bio" name="bio" />
-          <textarea name="username" value={profile.username} hidden readOnly />
           <Button
             positive
             type="submit"
