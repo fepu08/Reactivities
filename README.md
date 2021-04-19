@@ -46,10 +46,19 @@
 ### Cloudinary
 
 Inside ./backend/API/appsettings.json
+
 ```json
-"Cloudinary": { 
-  "CloudName": "YOUR_CLOUD_NAME", 
-  "ApiKey": "YOUR_API_KEY", 
-  "ApiSecret": "YOUR_API_SECRET" 
+"Cloudinary": {
+  "CloudName": "YOUR_CLOUD_NAME",
+  "ApiKey": "YOUR_API_KEY",
+  "ApiSecret": "YOUR_API_SECRET"
 }
+```
+
+### React - package.json
+
+Inside **./client/package.json** add script (on windows change "_mv_" to "_move_")
+
+```json
+  "postbuild": "mv build ../backend/API/wwwroot",
 ```
