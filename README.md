@@ -8,6 +8,7 @@
 - [Clean Architecture recommendations](#clean-architecture-recommendations)
 - [Command vs Query](#command-vs-query)
 - [Config](#config)
+- [Docker](#docker)
 
 ## Technologies
 
@@ -61,4 +62,14 @@ Inside **./client/package.json** add script (on windows change "_mv_" to "_move_
 
 ```json
   "postbuild": "mv build ../backend/API/wwwroot",
+```
+
+## Docker
+
+Create docker container for **PostgreSQL**.
+
+Don't forget to change _`<user>`_ and _`<password>`_
+
+```
+docker run --name dev -e POSTGRES_USER=<user> -e POSTGRES_PASSWORD=<password> -p 5432:5432 -d postgres:latest
 ```
