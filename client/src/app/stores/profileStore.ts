@@ -148,6 +148,8 @@ export default class ProfileStore {
             profile.following = !profile.following;
           }
         });
+
+        this.loadProfile(username);
         this.loading = false;
       });
     } catch (err) {
