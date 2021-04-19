@@ -273,4 +273,9 @@ export default class ActivityStore {
       });
     });
   };
+
+  realoadActivityRegistry = () => {
+    this.activityRegistry.clear();
+    this.loadActivities();
+  };
 }

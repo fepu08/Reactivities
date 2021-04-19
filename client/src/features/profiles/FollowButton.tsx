@@ -14,12 +14,12 @@ const FollowButton = ({ profile }: Props) => {
 
   if (userStore.user?.username === profile.username) return null;
 
-  function handleFollow(e: SyntheticEvent, username: string) {
+  const handleFollow = (e: SyntheticEvent, username: string) => {
     e.preventDefault();
     profile.following
       ? updateFollowing(username, false)
       : updateFollowing(username, true);
-  }
+  };
 
   return (
     <Reveal animated="move">
