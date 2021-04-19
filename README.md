@@ -44,6 +44,28 @@
 
 ## Config
 
+### Database connection string
+
+Inside ./backend/API/appsettings.Development.json
+
+**SQLite**
+
+```json
+"ConnectionStrings": {
+    "DefaultConnection": "Data source=reactivities.db"
+  }
+```
+
+**PostgreSQL**
+
+```json
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost; Port=5432; User Id=admin; Password=secret;Database=reactivities"
+  }
+```
+
+_`<admin>`_ and _`<secret>`_ should be changed based on your config ([Docker](#docker))
+
 ### Cloudinary
 
 Inside ./backend/API/appsettings.json
